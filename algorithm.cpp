@@ -174,6 +174,10 @@ void heapify(int* arr, int n, int i) {
 		heapify(arr, n, largest_index);
 	}
 };
+
+
+
+
 // ∂—≈≈–Ú
 void sort_heap(int* arr, int len) {
 	int n = len - 1;
@@ -185,6 +189,9 @@ void sort_heap(int* arr, int len) {
         heapify(arr, i, 0);
 	}
 }
+
+
+
 
 
 
