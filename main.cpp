@@ -30,8 +30,11 @@ int main() {
     int arr[] = { 1, 3, 2, 5, 4, 12312,222,444,33,21,5342,543,23,567,369,123,456,789,987,654,321,123,456,789,987,654,3 };
     int len = sizeof(arr) / sizeof(arr[0]);
     //sort_merge(arr, len);
-    sort_heap(arr, len);
+    //sort_heap(arr, len);
+	//sort_count(arr, len);
+	sort_bucket(arr, len);
     for (int i = 0; i < len; i++) {
         cout << arr[i] << " ";
     }
 }
+
