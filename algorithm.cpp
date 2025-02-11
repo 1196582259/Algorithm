@@ -3,6 +3,7 @@
 #include <utility>
 #include <iostream>
 #include <vector>
+#include <functional>
 using namespace std;
 // 冒泡排序
 void sort_bubble(int* arr, int len) {
@@ -231,7 +232,7 @@ void sort_bucket(int* arr, int len) {
 	}
 	int bucket_num = max - min + 1;
 	vector<vector<int>> bucket(bucket_num);
-	
+
 	for (int i = 0; i < len; i++) {
 		bucket[arr[i] - min].push_back(arr[i]);
 	}
@@ -274,3 +275,47 @@ void sort_radix(int* arr, int len) {
 }
 
 
+
+
+// vector 版本
+// 快速排序
+void sort_quick(vector<int>& v, int l, int r) {
+	if (l >= r) return;
+	int len = v.size();
+	int i = l, j = r;
+	while (i < j) {
+		while (v[j] >= v[l] && j > i) j--;
+		while (v[i] <= v[l] && j > i) i++;
+		std::swap(v[i], v[j]);
+	};
+	swap(v[i], v[l]);
+	sort_quick(v, l, i - 1);
+	sort_quick(v, i + 1, r);
+}
+
+
+void find(void* arr, int arr_len, int el_size, void (*temp)(int&, int&)) {
+	temp(arr_len, el_size);
+};
+
+// 二分查找法
+template<typename T>
+T find_bisection(vector<T>& v, int (*tmp)(T&)) {
+	int size = v.size();
+	int l = 0, r = size - 1;
+	cout << "二分查找法开始执行" << endl;
+	while (l <= r) {
+		int mid = l + (r - l) / 2;
+		int result = tmp(v[mid]);
+		if (result == 0) {
+			return v[mid];
+		}
+		else if (result == -1) {
+			r = mid - 1;
+		}
+		else {
+			l = mid + 1;
+		}
+	};
+	return T();
+};

@@ -36,5 +36,21 @@ int main() {
     for (int i = 0; i < len; i++) {
         cout << arr[i] << " ";
     }
+    cout << endl;
+
+    vector<int> v = { 1, 3, 2, 5, 4, 12312,222,444,33,21,5342,543,23,567,369,123,456,789,987,654,321,123,456,789,987,654,3 };
+    sort_quick(v, 0, v.size() - 1);
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+    cout << endl;
+    vector<int>test = { 1,2,3,4,5,6,7,8 };
+    int i = find_bisection<int>(test, [](int& n)->int {
+        int k = 8;
+        if (n == k) return 0;
+        if (n < k) return 1;
+        if (n > k) return -1;
+    });
+    cout << i << endl;
 }
 
