@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AVL\avl.cpp" />
     <ClCompile Include="line\line.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="tools\exception.cpp" />

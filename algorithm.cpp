@@ -3,6 +3,7 @@
 #include <utility>
 #include <iostream>
 #include <vector>
+#include <stack>
 #include <functional>
 using namespace std;
 // 冒泡排序
@@ -300,13 +301,13 @@ void find(void* arr, int arr_len, int el_size, void (*temp)(int&, int&)) {
 
 // 二分查找法
 template<typename T>
-T find_bisection(vector<T>& v, int (*tmp)(T&)) {
+T find_bisection(vector<T>& v, int (*sortFunc)(T&)) {
 	int size = v.size();
 	int l = 0, r = size - 1;
 	cout << "二分查找法开始执行" << endl;
 	while (l <= r) {
 		int mid = l + (r - l) / 2;
-		int result = tmp(v[mid]);
+		int result = sortFunc(v[mid]);
 		if (result == 0) {
 			return v[mid];
 		}
@@ -319,3 +320,38 @@ T find_bisection(vector<T>& v, int (*tmp)(T&)) {
 	};
 	return T();
 };
+
+
+// 中缀转前缀
+//template<typename T>
+//T toPrefix(const T& infix, int size) {
+//	stack<char> st;
+//	ostringstream prefix;
+//	for (int i = size - 1; i >= 0; --i) {
+//
+//	};
+//
+//};
+// 中缀转后缀
+
+
+
+
+// 闭包
+void handleIndex(int index, function<void()> vistor)
+{
+	if (index == 1)
+	{
+		vistor();
+	}
+}
+void OnHandleIndex(int index)
+{
+	int k = 123;
+	handleIndex(index, [&]()
+		{
+			cout << k << endl;
+			cout << "deal" << endl;
+			return;
+		});
+}

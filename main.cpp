@@ -52,5 +52,8 @@ int main() {
         if (n > k) return -1;
     });
     cout << i << endl;
+    cout << "-----------" << endl;
+    OnHandleIndex(0);
+    OnHandleIndex(1);
 }
 
